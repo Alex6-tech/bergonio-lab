@@ -44,4 +44,57 @@ class Motorcycle extends Vehicle {
         this.hasSidecar = hasSidecar;
     }
 
-    
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("Has Sidecar: " + (hasSidecar ? "Yes" : "No"));
+    }
+}
+
+
+public class TestVehicle {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.println("Enter details for Car:");
+        System.out.print("Brand: ");
+        String carBrand = scanner.nextLine();
+
+        System.out.print("Speed (km/h): ");
+        int carSpeed = scanner.nextInt();
+        scanner.nextLine(); 
+
+        System.out.print("Fuel Type: ");
+        String carFuelType = scanner.nextLine();
+
+        System.out.print("Number of Doors: ");
+        int carNumDoors = scanner.nextInt();
+        scanner.nextLine(); 
+
+        Car car = new Car(carBrand, carSpeed, carFuelType, carNumDoors);
+        System.out.println("\nCar Details:");
+        car.displayInfo();
+
+        
+        System.out.println("\nEnter details for Motorcycle:");
+        System.out.print("Brand: ");
+        String motorcycleBrand = scanner.nextLine();
+
+        System.out.print("Speed (km/h): ");
+        int motorcycleSpeed = scanner.nextInt();
+        scanner.nextLine(); 
+
+        System.out.print("Fuel Type: ");
+        String motorcycleFuelType = scanner.nextLine();
+
+        System.out.print("Has Sidecar (true/false): ");
+        boolean motorcycleHasSidecar = scanner.nextBoolean();
+
+        Motorcycle motorcycle = new Motorcycle(motorcycleBrand, motorcycleSpeed, motorcycleFuelType, motorcycleHasSidecar);
+        System.out.println("\nMotorcycle Details:");
+        motorcycle.displayInfo();
+
+        scanner.close();
+    }
+}
